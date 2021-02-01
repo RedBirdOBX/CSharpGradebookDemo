@@ -12,7 +12,9 @@ namespace Gradebook.ConsoleApp
             System.Console.Write("Provide the grade book name: ");
 
             // build the gradebook
-            string bookName = Console.ReadLine();
+            //string bookName = Console.ReadLine();
+            string bookName = "foobar";
+            
             var book = new Book(bookName);
 
             // add the grades
@@ -21,11 +23,12 @@ namespace Gradebook.ConsoleApp
             do
             {
                 System.Console.Write("Enter a grade: ");
-                grade = Console.ReadLine();
+                //grade = Console.ReadLine();
+                grade= "ddd";
 
                 try
                 {
-                    book.AddGrade(Convert.ToDouble(grade));
+                    book.AddGrade(grade);
                 }
                 catch (System.ArgumentException ex)
                 {
