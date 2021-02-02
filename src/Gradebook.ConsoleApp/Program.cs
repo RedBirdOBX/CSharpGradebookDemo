@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Gradebook.ConsoleApp;
 
-namespace Gradebook.ConsoleApp
+namespace GradeBook.ConsoleApp
 {
     class Program
     {
@@ -12,9 +15,7 @@ namespace Gradebook.ConsoleApp
             System.Console.Write("Provide the grade book name: ");
 
             // build the gradebook
-            //string bookName = Console.ReadLine();
-            string bookName = "foobar";
-            
+            string bookName = Console.ReadLine();
             var book = new Book(bookName);
 
             // add the grades
@@ -23,21 +24,19 @@ namespace Gradebook.ConsoleApp
             do
             {
                 System.Console.Write("Enter a grade: ");
-                //grade = Console.ReadLine();
-                grade= "ddd";
+                grade = Console.ReadLine();
 
                 try
                 {
-                    book.AddGrade(grade);
+                    book.AddGrade(Convert.ToDouble(grade));
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    System.Console.WriteLine($"** {grade} added **");
                 }
-                catch (System.ArgumentException ex)
+                catch (Exception ex)
                 {
                     //throw ex;
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message);
                 }
-
-                Console.ForegroundColor = ConsoleColor.Green;
-                System.Console.WriteLine($"** {grade} added **");
 
                 Console.ForegroundColor = ConsoleColor.Blue;
                 System.Console.WriteLine("Press any key to continue or Q to quit.");

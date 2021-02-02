@@ -21,45 +21,40 @@ namespace Gradebook.ConsoleApp
 
 
         // methods
-        public void AddGrade(string inputGrade)
+        public void AddGrade(double grade)
         {
-            try
+            if (grade <= 100 && grade >= 0)
             {
-                double grade = Convert.ToDouble(inputGrade);
-
-                if (grade <= 100 && grade >= 0)
-                {
-                    Grades.Add(grade);
-                }
+                Grades.Add(grade);
             }
-            catch
+            else
             {
-                System.Console.WriteLine("***Invalid grade***");
-                throw new ArgumentException($"Invalid {nameof(inputGrade)}");
+                System.Console.WriteLine("Invalid grade.");
+                throw new ArgumentException($"Invalid {nameof(grade)}");
             }
         }
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch (letter)
             {
                 case 'A':
-                    AddGrade("100");
+                    AddGrade(100);
                     break;
                 case 'B':
-                    AddGrade("89");
+                    AddGrade(89);
                     break;
                 case 'C':
-                    AddGrade("79");
+                    AddGrade(79);
                     break;
                 case 'D':
-                    AddGrade("69");
+                    AddGrade(69);
                     break;
                 case 'F':
-                    AddGrade("59");
+                    AddGrade(59);
                     break;
                 default:
-                    AddGrade("0");
+                    AddGrade(0);
                     break;
             }
         }

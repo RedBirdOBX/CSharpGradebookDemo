@@ -11,9 +11,9 @@ namespace GradeBook.Tests
         {
             // arrange
             var book = new Book("BookTest");
-            book.AddGrade("89.1");
-            book.AddGrade("90.5");
-            book.AddGrade("77.3");
+            book.AddGrade(89.1);
+            book.AddGrade(90.5);
+            book.AddGrade(77.3);
 
             // act
             var results = book.GetStatistics();
@@ -29,8 +29,8 @@ namespace GradeBook.Tests
         {
             // arrange
             var book = new Book("BookTest");
-            book.AddGrade("101");
-            book.AddGrade("-1");
+            book.AddGrade(101);
+            book.AddGrade(-1);
 
             // asert
             Assert.True(book.Grades.Count < 1);
