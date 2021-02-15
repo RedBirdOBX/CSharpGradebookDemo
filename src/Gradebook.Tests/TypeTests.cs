@@ -6,8 +6,18 @@ namespace GradeBook.Tests
 {
     // use 'dotnet test' at CLI.
 
+    public delegate string WriteLogDelegate(string logMessage);
+
     public class TypeTests
     {
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            WriteLogDelegate logDelegate = ReturnMessage;
+            var result = logDelegate("hello");
+            Assert.Equal("hello", result);
+        }
+
         [Fact]
         public void CSharpIsPassByValue()
         {
@@ -103,5 +113,9 @@ namespace GradeBook.Tests
             book.BookName = name;
         }
 
+        private string ReturnMessage(string msg)
+        {
+            return msg;
+        }
     }
 }

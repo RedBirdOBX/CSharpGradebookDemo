@@ -29,11 +29,12 @@ namespace GradeBook.Tests
         {
             // arrange
             var book = new Book("BookTest");
-            book.AddGrade(101);
-            book.AddGrade(-1);
+            //book.AddGrade(101);
+            //book.AddGrade(-1);
+            book.AddGrade(50);
 
             // asert
-            Assert.True(book.Grades.Count < 1);
+            Assert.True(book.Grades.Count == 1);
         }
     }
 }
